@@ -5,45 +5,35 @@ window.addEventListener("load", start);
 const endpoint = "https://rest-api-startdata-default-rtdb.europe-west1.firebasedatabase.app";
 
 async function start() {
-const getData = await getPosts(`${endpoint}/posts.json`)
-getData.forEach(showData);
+  const getData = await getPosts(`${endpoint}/posts.json`);
+  getData.forEach(showData);
 
-console.log(getData);
-
-
-
-
+  console.log(getData);
 }
 
-
 async function getPosts(url) {
-const response = await fetch(url)
+  const response = await fetch(url);
 
-const data = await response.json()
-const posts = preparePostData(data);
+  const data = await response.json();
+  const posts = preparePostData(data);
 
-return posts;
-
+  return posts;
 }
 
 function preparePostData(dataObject) {
-const postArray = [];
+  const postArray = [];
 
-for (const key in dataObject) {
-const post = dataObject[key];
-post.id = key;
-postArray.push(post);
+  for (const key in dataObject) {
+    const post = dataObject[key];
+    post.id = key;
+    postArray.push(post);
+  }
+
+  return postArray;
 }
-
-
-return postArray;
-
-}
-
 
 function showData(urlData) {
-    
-const myHtml = /*html*/ `
+  const myHtml = /*html*/ `
 <article>
 <p>Id: ${urlData.id}</p>
 <img src=${urlData.image}>
@@ -51,7 +41,5 @@ const myHtml = /*html*/ `
 </article>
 
 `;
-document.querySelector("#displayData").insertAdjacentHTML("beforeend", myHtml);
-
-
+  document.querySelector("#displayData").insertAdjacentHTML("beforeend", myHtml);
 }
