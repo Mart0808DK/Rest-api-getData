@@ -43,3 +43,18 @@ function showData(urlData) {
 `;
   document.querySelector("#displayData").insertAdjacentHTML("beforeend", myHtml);
 }
+
+
+async function createPost(title, image) {
+    const newPost = {title, image};
+    const postAsJson = JSON.stringify(newPost);
+    
+    const res = await fetch(`${endpoint}/posts.json`, {
+        method: "POST",
+        body: postAsJson
+    });
+    const data = await res.json();
+    console.log(data)
+}
+
+createPost("My First Post", "https://images.unsplash.com/photo-1641876749963-550554c7258d");

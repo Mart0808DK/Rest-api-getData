@@ -18,8 +18,13 @@ footer {
     display: grid;
     width: 100%;
     left: 50%;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 1%;
-    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0%;
+    gap: 20px;
 }
 
+img {
+    border: solid black 2px;
+    height: 404px;
+    width: 614px;
+}
