@@ -1,0 +1,23 @@
+body {
+  background-color: bisque;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#displayData {
+  display: grid;
+  width: 100%;
+  left: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1%;
+  gap: 2px;
+}
